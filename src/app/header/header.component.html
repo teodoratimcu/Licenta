@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <span><a routerLink="/">Travel App</a></span>
+<ul>
+  <li *ngIf="userIsAuthenticated"><a mat-button routerLink="/"><mat-icon>home</mat-icon></a></li>
+  <li *ngIf="userIsAuthenticated"><a mat-button routerLink="/map">Travel Map</a></li>
+  <li *ngIf="userIsAuthenticated"><a mat-button routerLink="/notes">Notes</a></li>
+  <li *ngIf="userIsAuthenticated"><a mat-button routerLink="/photos">Photos</a></li>
+  <li *ngIf="userIsAuthenticated"><a mat-button routerLink="/photos">Wishlist</a></li>
+   <li *ngIf="userIsAuthenticated"><a mat-button routerLink="/photos">Travel challange</a></li>
+<li *ngIf="userIsAuthenticated"><a mat-button routerLink="/photos">Journal</a></li>
+</ul>
+  <span class="spacer"></span>
+  <ul>
+    <li *ngIf="!userIsAuthenticated">
+      <a mat-button routerLink="/login">Login</a>
+    </li>
+    <li *ngIf="!userIsAuthenticated">
+      <a mat-button routerLink="/signup">Sign up</a>
+    </li>
+    <li *ngIf="userIsAuthenticated">
+      <a mat-button><mat-icon>person</mat-icon>{{userName}}</a>
+    </li>
+    <li *ngIf="userIsAuthenticated">
+      <button mat-button (click)="onLogout()"><span class="material-icons">exit_to_app</span></button>
+    </li>
+  </ul>
+</mat-toolbar>

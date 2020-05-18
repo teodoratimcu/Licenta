@@ -1,0 +1,9 @@
+.center {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  margin-bottom: 70px;
+}
