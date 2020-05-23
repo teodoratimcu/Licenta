@@ -39,6 +39,7 @@ exports.updatePost = (req, res, next) => {
     imagePath: imagePath,
     creator: req.userData.userId
   });
+  console.log(req.params);
   Post.updateOne({ _id: req.params.id, creator: req.userData.userId }, post)
     .then(result => {
       if (result.n > 0) {
@@ -55,6 +56,7 @@ exports.updatePost = (req, res, next) => {
 };
 
 exports.getPosts = (req, res, next) => {
+  console.log(res);
   const pageSize = +req.query.pagesize;
   const currentPage = +req.query.page;
   const postQuery = Post.find();

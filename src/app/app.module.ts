@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { MatInputModule } from "@angular/material/input";
 import { MatCardModule } from "@angular/material/card";
@@ -15,6 +15,9 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from "@angular/material/list";
 import { MatIconModule } from "@angular/material/icon";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatTooltipModule } from "@angular/material/tooltip";
+import { MatGridListModule } from "@angular/material/grid-list";
+import { MatSelectModule } from "@angular/material/select";
 
 import { AppComponent } from "./app.component";
 import { PostCreateComponent } from "./posts/post-create/post-create.component";
@@ -27,14 +30,16 @@ import { SignupComponent } from "./auth/signup/signup.component";
 import { AuthInterceptor } from "./auth/auth-interceptor";
 import { ErrorInterceptor } from "./error-interceptor";
 import { ErrorComponent } from "./error/error.component";
-import { SidebarComponent } from "./sidebar/sidebar.component";
 import { AppWrapperComponent } from "./app-wrapper/app-wrapper.component";
 import { HomeComponent } from "./home/home.component";
 import { NotesComponent } from "./notes/notes.component";
 import { AddNoteDialogComponent } from "./notes/add-note-dialog/add-note-dialog.component";
 import { MapComponent } from "./map/map.component";
 import { GoogleMapsModule } from "@angular/google-maps";
-import { PhotosComponent } from './photos/photos.component';
+import { PhotosComponent } from "./photos/photos.component";
+import { AddLocationDialogComponent } from "./map/add-location-dialog/add-location-dialog.component";
+import { MapWrapperComponent } from "./map/map-wrapper/map-wrapper.component";
+import { AddPhotosComponent } from "./photos/add-photos/add-photos.component";
 
 @NgModule({
   declarations: [
@@ -45,13 +50,15 @@ import { PhotosComponent } from './photos/photos.component';
     LoginComponent,
     SignupComponent,
     ErrorComponent,
-    SidebarComponent,
     AppWrapperComponent,
     HomeComponent,
     NotesComponent,
     AddNoteDialogComponent,
     MapComponent,
     PhotosComponent,
+    AddLocationDialogComponent,
+    MapWrapperComponent,
+    AddPhotosComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +80,10 @@ import { PhotosComponent } from './photos/photos.component';
     MatListModule,
     MatIconModule,
     MatSnackBarModule,
+    GoogleMapsModule,
+    MatGridListModule,
+    MatTooltipModule,
+    MatSelectModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
@@ -80,5 +91,6 @@ import { PhotosComponent } from './photos/photos.component';
   ],
   bootstrap: [AppComponent],
   entryComponents: [ErrorComponent],
+  schemas: [NO_ERRORS_SCHEMA],
 })
 export class AppModule {}

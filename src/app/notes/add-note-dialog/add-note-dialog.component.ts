@@ -7,6 +7,8 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { ParamMap, ActivatedRoute } from "@angular/router";
 import { mimeType } from "src/app/posts/post-create/mime-type.validator";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { finalize } from "rxjs/operators";
 
 @Component({
   selector: "app-add-note-dialog",
@@ -17,6 +19,8 @@ export class AddNoteDialogComponent implements OnInit {
   enteredTitle = "";
   enteredContent = "";
   post: PostModel;
+  postsPerPage = 5;
+  currentPage = 1;
   preloader = false;
   addEditNoteForm: FormGroup = new FormGroup({
     title: new FormControl(null, {
@@ -34,6 +38,7 @@ export class AddNoteDialogComponent implements OnInit {
   private authStatusSub: Subscription;
 
   constructor(
+    private snackBar: MatSnackBar,
     private dialogRef: MatDialogRef<AddNoteDialogComponent>,
     public postsService: PostsService,
     public route: ActivatedRoute,
@@ -92,15 +97,30 @@ export class AddNoteDialogComponent implements OnInit {
   onSavePost() {
     this.preloader = true;
 
-    if (this.mode === "create") {
-      this.postsService.addPost(
-        this.addEditNoteForm.value.title,
-        this.addEditNoteForm.value.content,
-        this.addEditNoteForm.value.image
-      );
+    if (!this.data) {
+      this.postsService
+        .addPost(
+          this.addEditNoteForm.value.title,
+          this.addEditNoteForm.value.content,
+          this.addEditNoteForm.value.image
+        )
+        .pipe(finalize(() => (this.preloader = false)))
+        .subscribe(() => {
+          this.snackBar.open(
+            "You have successfully added a new post!",
+            "Dismiss",
+            {
+              duration: 4000,
+              verticalPosition: "bottom",
+              horizontalPosition: "right",
+            }
+          );
+          this.postsService.getPosts(this.postsPerPage, this.currentPage);
+          this.dialogRef.close(true);
+        });
     } else {
       this.postsService.updatePost(
-        this.postId,
+        this.data.id,
         this.addEditNoteForm.value.title,
         this.addEditNoteForm.value.content,
         this.addEditNoteForm.value.image

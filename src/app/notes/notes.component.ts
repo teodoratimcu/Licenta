@@ -6,6 +6,7 @@ import { PostModel } from "../posts/post.model";
 import { PostsService } from "../posts/posts.service";
 import { AuthService } from "../auth/auth.service";
 import { Subscription } from "rxjs";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: "app-notes",
@@ -16,7 +17,7 @@ export class NotesComponent implements OnInit {
   posts: PostModel[] = [];
   preloader: boolean = false;
   totalPosts = 0;
-  postsPerPage = 2;
+  postsPerPage = 5;
   currentPage = 1;
   pageSizeOptions = [1, 2, 5, 10];
   userIsAuthenticated: boolean = false;
@@ -25,6 +26,7 @@ export class NotesComponent implements OnInit {
   private authStatusSub: Subscription;
 
   constructor(
+    private snackBar: MatSnackBar,
     private dialog: MatDialog,
     public postsService: PostsService,
     private authService: AuthService
@@ -61,6 +63,15 @@ export class NotesComponent implements OnInit {
     this.preloader = true;
     this.postsService.deletePost(postId).subscribe(
       () => {
+        this.snackBar.open(
+          "You have successfully deleted this note!",
+          "Dismiss",
+          {
+            duration: 4000,
+            verticalPosition: "bottom",
+            horizontalPosition: "right",
+          }
+        );
         this.postsService.getPosts(this.postsPerPage, this.currentPage);
       },
       () => {

@@ -30,7 +30,7 @@ mat-paginator {
 }
 
 .logo {
-  width:50%;
+  width:30%;
   margin-top: 120px;
 }
 
@@ -39,7 +39,6 @@ mat-paginator {
   margin: 0 auto;
 }
 
-.add-note {
-  margin-left: 480px;
-  margin-bottom: 10px;
+.content {
+margin: 0 auto;
 }

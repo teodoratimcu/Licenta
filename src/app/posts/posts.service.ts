@@ -1,7 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { map } from "rxjs/operators";
-import { MatSnackBar } from "@angular/material/snack-bar";
 import { Subject } from "rxjs";
 
 import { PostModel } from "./post.model";
@@ -9,17 +8,14 @@ import { Router } from "@angular/router";
 
 @Injectable({ providedIn: "root" })
 export class PostsService {
+  updateNotesList = new Subject<boolean>();
   private posts: PostModel[] = [];
   private postsUpdated = new Subject<{
     posts: PostModel[];
     postCount: number;
   }>();
 
-  constructor(
-    private snackBar: MatSnackBar,
-    private http: HttpClient,
-    private router: Router
-  ) {}
+  constructor(private http: HttpClient, private router: Router) {}
   getPosts(postsPerPage: number, currentPage: number) {
     const queryParams = `?pagesize=${postsPerPage}&page=${currentPage}`;
     this.http
@@ -43,6 +39,7 @@ export class PostsService {
         })
       )
       .subscribe((transformedPostData) => {
+        console.log(transformedPostData);
         this.posts = transformedPostData.posts;
         this.postsUpdated.next({
           posts: [...this.posts],
@@ -84,9 +81,7 @@ export class PostsService {
     }
     this.http
       .put("http://localhost:3000/api/posts/" + id, postData)
-      .subscribe((respone) => {
-        this.router.navigate(["/"]);
-      });
+      .subscribe((respone) => {});
   }
 
   addPost(title: string, content: string, image: File) {
@@ -94,20 +89,10 @@ export class PostsService {
     postData.append("title", title);
     postData.append("content", content);
     postData.append("image", image, title);
-    this.http
-      .post<{ message: string; post: PostModel }>(
-        "http://localhost:3000/api/posts",
-        postData
-      )
-      .subscribe(() => {
-        this.snackBar.open(
-          "You have successfully added a new post!",
-          "Dismiss",
-          {
-            duration: 2000,
-          }
-        );
-      });
+    return this.http.post<{ message: string; post: PostModel }>(
+      "http://localhost:3000/api/posts",
+      postData
+    );
   }
 
   deletePost(postId: string) {

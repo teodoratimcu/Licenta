@@ -1,4 +1,6 @@
-<button class="add-note" mat-raised-button (click)="openDialog()">Add note</button>
+
+<div class="content">
+<button class="add-note" color="primary" mat-flat-button (click)="openDialog()">Add post</button>
 
 <mat-spinner  diameter="30" *ngIf="preloader"></mat-spinner>
 <div class="panel-container">
@@ -12,8 +14,9 @@
     </div>
     <p>{{ post.content }}</p>
     <mat-action-row *ngIf="userIsAuthenticated && userId === post.creator">
-      <a mat-button color="accent" (click)="openDialog(post)">Edit</a>
-      <button mat-button color="warn" (click)="onDelete(post.id)">Delete</button>
+      <a color="primary" mat-flat-button (click)="openDialog(post)">Edit</a>
+      <button mat-button (click)="onDelete(post.id)" color="primary"
+      mat-stroked-button>Delete</button>
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
@@ -21,4 +24,5 @@
 <mat-paginator showFirstLastButtons [length]="totalPosts" [pageSize]="postsPerPage" [pageSizeOptions]="pageSizeOptions" (page)="onChangedPage($event)" *ngIf="posts.length"></mat-paginator>
 <p class="info-text mat-body-1" *ngIf="!posts.length && !preloader">No notes added yet!</p>
 </div>
-<img class="logo" src="assets/images/notes.svg" />
+</div>
+<img class="logo" src="assets/images/diary.svg" />

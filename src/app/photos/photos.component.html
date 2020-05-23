@@ -1,31 +1,22 @@
-    <button mat-stroked-button type="button" (click)="filePicker.click()">Add photo</button>
-    <input type="file" #filePicker>
-<div class="row">
-  <div class="column">
-    <img src="assets/images/test.jpg" alt="Snow" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="assets/images/test.jpg" alt="Forest" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="assets/images/images.jpg" alt="Mountains" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="assets/images/download.jpg" alt="Snow" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="assets/images/download.jpg" alt="Forest" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="assets/images/images.jpg" alt="Mountains" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="assets/images/download.jpg" alt="Snow" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="assets/images/download.jpg" alt="Forest" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="assets/images/images.jpg" alt="Mountains" style="width:100%">
-  </div>
+
+<div class="left">
+  <div class="wrapper">
+  <img class="logo" src="assets/images/photos.svg" />
+  <button mat-flat-button class="button" (click)="openDialog()">Add photo</button>
 </div>
+</div>
+
+<div class="right">
+<mat-spinner  diameter="30" *ngIf="preloader"></mat-spinner>
+  <div class="row" *ngIf="photos.length && !preloader">
+    <div class="column" *ngFor="let photo of photos">
+          <div class="content">
+            <img [src]="photo.imagePath" [alt]="photo.title" style="width:100%">
+            <h3>{{photo.title}}</h3>
+            <p>{{photo.description}}</p>
+          </div>
+      </div>
+    </div>
+<p class="info-text" *ngIf="!photos.length && !preloader">No photos added yet!</p>
+</div>
+

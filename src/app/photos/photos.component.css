@@ -2,28 +2,89 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-family: Arial;
+}
+
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row,
+.row > .column {
+  padding: 8px;
+}
+
 .column {
   float: left;
-  width: 33.33%;
-  padding: 5px;
+  width: 25%;
 }
 
-/* Clearfix (clear floats) */
-.row::after {
+.row:after {
   content: "";
-  clear: both;
   display: table;
+  clear: both;
 }
 
-input[type="file"] {
-  visibility: hidden;
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
 }
 
-.image-preview {
-  height: 5rem;
-  margin: 1rem 0;
+@media screen and (max-width: 900px) {
+  .column {
+    width: 50%;
+  }
 }
 
-.image-preview img {
-  height: 100%;
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.left{
+    float: left;
+    width: 30%;
+}
+
+.right {
+    float: right;
+    width: 70%;
+}
+
+.info-text {
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #e1e5eb;
+  position: relative;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+.logo {
+  width:60%;
+}
+
+
+.button {
+    position:absolute;
+    left:14%;
+}
+
+.wrapper {
+width:100%;
+  margin: 0 auto;
+text-align: center;
 }

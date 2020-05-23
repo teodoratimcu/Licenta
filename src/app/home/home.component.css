@@ -7,3 +7,8 @@
   display: flex;
   margin-bottom: 70px;
 }
+
+.content {
+width:50%;
+margin:0 auto;
+}

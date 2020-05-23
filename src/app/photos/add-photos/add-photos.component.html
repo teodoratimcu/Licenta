@@ -1,23 +1,22 @@
 <!-- Dialog title -->
-<h4 mat-dialog-title>{{data ? 'Edit note' : 'Add note'}}</h4>
+<h4 mat-dialog-title>Add photo</h4>
 
 <!-- Dialog content -->
 <div mat-dialog-content>
     <div class="dialog-content">
-      <mat-spinner diameter="30" *ngIf="preloader"></mat-spinner>
-      <form [formGroup]="addEditNoteForm" *ngIf="!preloader">
+      <form [formGroup]="addPhotosForm">
     <mat-form-field>
-      <input matInput type="text" formControlName="title" required placeholder="Title">
-      <mat-error *ngIf="title.hasError('required')">Title is required!</mat-error>
+      <input matInput type="text" formControlName="title" required placeholder="Location"/>
     </mat-form-field>
     <mat-form-field>
-      <textarea matInput rows="4" formControlName="content" required placeholder="Content"></textarea>
-      <mat-error *ngIf="content.hasError('required')">Content is required!</mat-error>
+      <textarea matInput rows="2" formControlName="description" required placeholder="Description"></textarea>
     </mat-form-field>
     <button mat-stroked-button type="button" (click)="filePicker.click()">Pick image</button>
     <input type="file" #filePicker (change)="onImagePicked($event)">
     <div class="image-preview" *ngIf="imagePreview !=='' && imagePreview && image.valid">
       <img [src]="imagePreview" [alt]="title">
+    </div>
+    <div>
     </div>
   </form>
     </div>
@@ -29,13 +28,15 @@
     <!-- Cancel -->
     <button
       color="primary"
-      mat-flat-button
-      (click)="onSavePost()">Save note</button>
+      [disabled]="addPhotosForm.invalid"
+      (click)="onSave()"
+      mat-flat-button>Save</button>
     <button
       color="primary"
       (click)="onCancel()"
       mat-stroked-button>
-      <span>Annuleer</span>
+      <span>Cancel</span>
     </button>
   </div>
 </div>
+
