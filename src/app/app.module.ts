@@ -18,6 +18,9 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatSelectModule } from "@angular/material/select";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { MatChipsModule } from "@angular/material/chips";
+import { DragDropModule } from "@angular/cdk/drag-drop";
 
 import { AppComponent } from "./app.component";
 import { PostCreateComponent } from "./posts/post-create/post-create.component";
@@ -40,6 +43,9 @@ import { PhotosComponent } from "./photos/photos.component";
 import { AddLocationDialogComponent } from "./map/add-location-dialog/add-location-dialog.component";
 import { MapWrapperComponent } from "./map/map-wrapper/map-wrapper.component";
 import { AddPhotosComponent } from "./photos/add-photos/add-photos.component";
+import { ChallengeComponent } from "./challenge/challenge.component";
+import { AddChallengeComponent } from "./challenge/add-challenge/add-challenge.component";
+import { QuitChallengeDialogComponent } from './challenge/quit-challenge-dialog/quit-challenge-dialog.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +65,9 @@ import { AddPhotosComponent } from "./photos/add-photos/add-photos.component";
     AddLocationDialogComponent,
     MapWrapperComponent,
     AddPhotosComponent,
+    ChallengeComponent,
+    AddChallengeComponent,
+    QuitChallengeDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,6 +93,9 @@ import { AddPhotosComponent } from "./photos/add-photos/add-photos.component";
     MatGridListModule,
     MatTooltipModule,
     MatSelectModule,
+    MatProgressBarModule,
+    MatChipsModule,
+    DragDropModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

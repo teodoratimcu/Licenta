@@ -1,0 +1,23 @@
+<!-- Dialog title -->
+<h4 mat-dialog-title>Quit challenge</h4>
+
+<!-- Dialog content -->
+<div mat-dialog-content>
+  <p>Are you sure you want to quit this challenge?</p>
+</div>
+
+<!-- Dialog actions -->
+<div mat-dialog-actions align="end">
+  <div class="multiple-buttons">
+    <button
+      (click)="onDelete()"
+      color="primary"
+      mat-flat-button>Delete</button>
+    <button
+      color="primary"
+      (click)="onCancel()"
+      mat-stroked-button>
+      <span>Cancel</span>
+    </button>
+  </div>
+</div>

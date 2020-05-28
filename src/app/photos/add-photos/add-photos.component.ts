@@ -62,6 +62,8 @@ export class AddPhotosComponent implements OnInit {
   }
 
   onSave() {
+    this.preloader = true;
+
     this.photosService
       .addPhoto(
         this.addPhotosForm.value.title,

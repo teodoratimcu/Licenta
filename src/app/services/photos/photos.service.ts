@@ -16,7 +16,7 @@ export class PhotosService {
     photoData.append("title", title);
     photoData.append("description", description);
     photoData.append("image", image, title);
-    return this.http.post<{ message: string; post: PhotosModel }>(
+    return this.http.post<{ message: string; photo: PhotosModel }>(
       "http://localhost:3000/api/photos",
       photoData
     );

@@ -9,6 +9,7 @@ import { HomeComponent } from "./home/home.component";
 import { NotesComponent } from "./notes/notes.component";
 import { MapComponent } from "./map/map.component";
 import { PhotosComponent } from "./photos/photos.component";
+import { ChallengeComponent } from "./challenge/challenge.component";
 
 const routes: Routes = [
   {
@@ -40,6 +41,10 @@ const routes: Routes = [
   {
     path: "photos",
     component: PhotosComponent,
+  },
+  {
+    path: "challenge",
+    component: ChallengeComponent,
   },
 ];
 

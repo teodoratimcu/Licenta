@@ -1,0 +1,44 @@
+<!-- Dialog title -->
+<h4 mat-dialog-title>Add location</h4>
+
+<!-- Dialog content -->
+<div mat-dialog-content>
+    <div class="dialog-content">
+      <form [formGroup]="addLocationForm">
+    <mat-form-field>
+      <mat-select  required formControlName="countries" placeholder="Country" (selectionChange)="onSelectChange($event)">
+        <mat-option value="de">Germany</mat-option>
+        <mat-option value="it">Italy</mat-option>
+        <mat-option value="fr">France</mat-option>
+        <mat-option value="ro">Romania</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="disableCities">
+      <input id="cities" (focus)="autocompleteFocus()" matInput type="text" formControlName="cities" required placeholder="Cities"/>
+    </mat-form-field>
+    <div>
+    <mat-form-field>
+      <textarea matInput rows="2" formControlName="description" placeholder="Description"></textarea>
+    </mat-form-field>
+    </div>
+  </form>
+    </div>
+</div>
+
+<!-- Dialog actions -->
+<div mat-dialog-actions align="end">
+  <div class="multiple-buttons">
+    <!-- Cancel -->
+    <button
+      color="primary"
+      (click)="onSave()"
+      [disabled]="addLocationForm.invalid"
+      mat-flat-button>Save</button>
+    <button
+      color="primary"
+      (click)="onCancel()"
+      mat-stroked-button>
+      <span>Cancel</span>
+    </button>
+  </div>
+</div>

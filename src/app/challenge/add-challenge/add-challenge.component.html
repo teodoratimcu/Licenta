@@ -1,0 +1,36 @@
+<!-- Dialog title -->
+<h4 mat-dialog-title>{{ data ? 'Edit challenge' : 'Add challenge'}}</h4>
+
+<!-- Dialog content -->
+<div mat-dialog-content>
+    <div class="dialog-content">
+      <form [formGroup]="addChallengeForm">
+    <mat-form-field>
+      <input matInput type="text" min="0" max="100" formControlName="countries" pattern="^[1-9]\d*$" required placeholder="Number of countries you want to visit"/>
+      <mat-error *ngIf="countries.hasError('required')">Number of countries is required!</mat-error>
+      <mat-error *ngIf="countries.hasError('pattern')">Number of countries must be a whole positive number!</mat-error>
+    </mat-form-field>
+    <div>
+    </div>
+  </form>
+    </div>
+</div>
+
+<!-- Dialog actions -->
+<div mat-dialog-actions align="end">
+  <div class="multiple-buttons">
+    <!-- Cancel -->
+    <button
+      color="primary"
+      (click)="onSave()"
+      [disabled]="addChallengeForm.invalid"
+      mat-flat-button>Save</button>
+    <button
+      color="primary"
+      (click)="onCancel()"
+      mat-stroked-button>
+      <span>Cancel</span>
+    </button>
+  </div>
+</div>
+

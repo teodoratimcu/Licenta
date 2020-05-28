@@ -21,14 +21,13 @@ exports.addPhoto = (req, res, next) => {
     })
     .catch(error => {
       res.status(500).json({
-        message: "Creating a post failed!"
+        message: "Creating a photo failed!"
       });
     });
 
 }
 
 exports.getPhotos = (req, res, next) => {
-  console.log(res);
   const photoQuery = Photo.find();
   let fetchedPhotos;
   photoQuery

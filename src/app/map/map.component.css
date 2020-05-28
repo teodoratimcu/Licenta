@@ -1,0 +1,50 @@
+#map {
+  height: 600px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+p {
+  font-size: 50px;
+  line-height: 50px;
+  font-weight: 200;
+  margin: 25px 0 0 0;
+}
+
+
+.countries-wrap {
+  overflow: hidden;
+  position: relative;
+  float: left;
+  width: 33.33%;
+  text-align: center;
+}
+
+.places{
+font-weight: 200;
+    color: #444;
+    margin: 0 20px;
+}
+
+.counter {
+font-weight: 200;
+    color: #444;
+    border-right: 1px solid #ddd;
+    margin: 0 20px;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.button {
+  margin-left: 1450px;
+  margin-bottom: 10px;
+}

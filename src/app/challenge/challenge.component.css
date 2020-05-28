@@ -1,0 +1,45 @@
+.example-card {
+  max-width: 500px;
+  margin: 0 auto;
+  width: 400px;
+}
+
+.example-header-image {
+  background-image: url('/assets/images/female_avatar.svg');
+  background-size: cover;
+}
+
+mat-progress-bar {
+  height: 10px;
+}
+
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+p {
+  margin: 0;
+  margin-left: 5px;
+}
+
+mat-chip {
+  max-width: 100px;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+.logo {
+    position:fixed;
+    bottom:0;
+    margin:0;
+    width:40%;
+}
+
+.button {
+   position:relative; margin: -20px -50px; top:50%; left:50%;
+}
+
