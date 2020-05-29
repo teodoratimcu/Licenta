@@ -21,6 +21,7 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { MatChipsModule } from "@angular/material/chips";
 import { DragDropModule } from "@angular/cdk/drag-drop";
+import { MatMenuModule } from "@angular/material/menu";
 
 import { AppComponent } from "./app.component";
 import { PostCreateComponent } from "./posts/post-create/post-create.component";
@@ -33,7 +34,6 @@ import { SignupComponent } from "./auth/signup/signup.component";
 import { AuthInterceptor } from "./auth/auth-interceptor";
 import { ErrorInterceptor } from "./error-interceptor";
 import { ErrorComponent } from "./error/error.component";
-import { AppWrapperComponent } from "./app-wrapper/app-wrapper.component";
 import { HomeComponent } from "./home/home.component";
 import { NotesComponent } from "./notes/notes.component";
 import { AddNoteDialogComponent } from "./notes/add-note-dialog/add-note-dialog.component";
@@ -45,7 +45,8 @@ import { MapWrapperComponent } from "./map/map-wrapper/map-wrapper.component";
 import { AddPhotosComponent } from "./photos/add-photos/add-photos.component";
 import { ChallengeComponent } from "./challenge/challenge.component";
 import { AddChallengeComponent } from "./challenge/add-challenge/add-challenge.component";
-import { QuitChallengeDialogComponent } from './challenge/quit-challenge-dialog/quit-challenge-dialog.component';
+import { QuitChallengeDialogComponent } from "./challenge/quit-challenge-dialog/quit-challenge-dialog.component";
+import { ThemeComponent } from "./theme/theme.component";
 
 @NgModule({
   declarations: [
@@ -56,7 +57,6 @@ import { QuitChallengeDialogComponent } from './challenge/quit-challenge-dialog/
     LoginComponent,
     SignupComponent,
     ErrorComponent,
-    AppWrapperComponent,
     HomeComponent,
     NotesComponent,
     AddNoteDialogComponent,
@@ -68,6 +68,7 @@ import { QuitChallengeDialogComponent } from './challenge/quit-challenge-dialog/
     ChallengeComponent,
     AddChallengeComponent,
     QuitChallengeDialogComponent,
+    ThemeComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,6 +97,7 @@ import { QuitChallengeDialogComponent } from './challenge/quit-challenge-dialog/
     MatProgressBarModule,
     MatChipsModule,
     DragDropModule,
+    MatMenuModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

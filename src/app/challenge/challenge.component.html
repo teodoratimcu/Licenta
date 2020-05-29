@@ -1,6 +1,5 @@
 <button mat-raised-button class="button" *ngIf="!challenges.length && !preloader" (click)="openDialog()">Add challenge</button>
 
-
 <mat-spinner  diameter="30" *ngIf="preloader"></mat-spinner>
 <mat-card class="example-card" *ngFor="let challenge of challenges">
   <mat-card-header>

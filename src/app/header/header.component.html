@@ -9,6 +9,11 @@
    <li *ngIf="userIsAuthenticated"><a mat-button routerLink="/challenge">Travel challange</a></li>
 </ul>
   <span class="spacer"></span>
+    <app-theme
+      matTooltip="Select a theme for the application"
+      [options]="options$ | async"
+      (themeChange)="themeChangeHandler($event)">
+    </app-theme>
   <ul>
     <li *ngIf="!userIsAuthenticated">
       <a mat-button routerLink="/login">Login</a>
@@ -21,7 +26,7 @@
 
     </li>
     <li *ngIf="userIsAuthenticated">
-      <button mat-button (click)="onLogout()"><span class="material-icons">exit_to_app</span></button>
+      <button mat-button matTooltip="Logout" (click)="onLogout()"><span class="material-icons">exit_to_app</span></button>
     </li>
   </ul>
 </mat-toolbar>

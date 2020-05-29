@@ -10,12 +10,10 @@ mat-spinner {
 
 mat-paginator {
   margin-top: 1rem;
-  background: whitesmoke;
 }
 
 .info-text {
   padding: 20px;
-  background: #fff;
   border: 1px solid #e1e5eb;
   position: relative;
 }
