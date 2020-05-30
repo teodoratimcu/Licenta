@@ -1,7 +1,6 @@
 #map {
   height: 600px;
-  width: 80%;
-  margin: 0 auto;
+  width: 100%;
 }
 
 p {
@@ -33,7 +32,8 @@ font-weight: 200;
     margin: 0 20px;
 }
 
-.container {
+.content {
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -44,7 +44,9 @@ font-weight: 200;
   flex-direction: column;
 }
 
-.button {
-  margin-left: 1450px;
+.center {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   margin-bottom: 10px;
 }

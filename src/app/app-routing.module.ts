@@ -10,6 +10,7 @@ import { NotesComponent } from "./notes/notes.component";
 import { MapComponent } from "./map/map.component";
 import { PhotosComponent } from "./photos/photos.component";
 import { ChallengeComponent } from "./challenge/challenge.component";
+import { WishlistComponent } from "./wishlist/wishlist.component";
 
 const routes: Routes = [
   {
@@ -45,6 +46,10 @@ const routes: Routes = [
   {
     path: "challenge",
     component: ChallengeComponent,
+  },
+  {
+    path: "wishlist",
+    component: WishlistComponent,
   },
 ];
 

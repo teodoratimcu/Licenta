@@ -22,6 +22,9 @@ import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { MatChipsModule } from "@angular/material/chips";
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { MatMenuModule } from "@angular/material/menu";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from "@angular/material/core";
+import { MatTableModule } from "@angular/material/table";
 
 import { AppComponent } from "./app.component";
 import { PostCreateComponent } from "./posts/post-create/post-create.component";
@@ -47,6 +50,9 @@ import { ChallengeComponent } from "./challenge/challenge.component";
 import { AddChallengeComponent } from "./challenge/add-challenge/add-challenge.component";
 import { QuitChallengeDialogComponent } from "./challenge/quit-challenge-dialog/quit-challenge-dialog.component";
 import { ThemeComponent } from "./theme/theme.component";
+import { WishlistComponent } from "./wishlist/wishlist.component";
+import { AddWishComponent } from "./wishlist/add-wish/add-wish.component";
+import { DeleteWishComponent } from './wishlist/delete-wish/delete-wish.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +75,9 @@ import { ThemeComponent } from "./theme/theme.component";
     AddChallengeComponent,
     QuitChallengeDialogComponent,
     ThemeComponent,
+    WishlistComponent,
+    AddWishComponent,
+    DeleteWishComponent,
   ],
   imports: [
     BrowserModule,
@@ -98,8 +107,12 @@ import { ThemeComponent } from "./theme/theme.component";
     MatChipsModule,
     DragDropModule,
     MatMenuModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTableModule,
   ],
   providers: [
+    MatDatepickerModule,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],

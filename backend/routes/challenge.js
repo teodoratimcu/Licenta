@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.post("", checkAuth, ChallengeController.addChallenge);
 
-router.get("", ChallengeController.getChallenge);
+router.get("", checkAuth, ChallengeController.getChallenge);
 
 router.put("/:id", checkAuth, ChallengeController.updateChallenge);
 

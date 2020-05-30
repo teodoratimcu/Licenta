@@ -59,7 +59,7 @@ exports.getPosts = (req, res, next) => {
   console.log(res);
   const pageSize = +req.query.pagesize;
   const currentPage = +req.query.page;
-  const postQuery = Post.find();
+  const postQuery = Post.find({creator: req.userData.userId});
   let fetchedPosts;
   if (pageSize && currentPage) {
     postQuery.skip(pageSize * (currentPage - 1)).limit(pageSize);

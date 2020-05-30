@@ -1,0 +1,50 @@
+<!-- Dialog title -->
+<h4 mat-dialog-title>Add places</h4>
+
+<!-- Dialog content -->
+<div mat-dialog-content>
+    <div class="dialog-content">
+      <form [formGroup]="addWishlistForm">
+    <mat-form-field>
+      <input matInput type="text" formControlName="location" required placeholder="Location"/>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput formControlName="startDate" [matDatepicker]="picker1">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput formControlName="endDate" [matDatepicker]="picker2">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="who" required placeholder="Choose who you're going with"/>
+    </mat-form-field>
+    <div>
+    </div>
+  </form>
+    </div>
+</div>
+
+<!-- Dialog actions -->
+<div mat-dialog-actions align="end">
+  <div class="multiple-buttons">
+    <!-- Cancel -->
+    <button
+      color="primary"
+      [disabled]="addWishlistForm.invalid"
+      (click)="onSave()"
+      mat-flat-button>Save</button>
+    <button
+      color="primary"
+      (click)="onCancel()"
+      mat-stroked-button>
+      <span>Cancel</span>
+    </button>
+  </div>
+</div>
+
+

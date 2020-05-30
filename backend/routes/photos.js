@@ -9,6 +9,6 @@ const router = express.Router();
 
 router.post("", checkAuth, extractFile, PhotosController.addPhoto);
 
-router.get("", PhotosController.getPhotos);
+router.get("", checkAuth, PhotosController.getPhotos);
 
 module.exports = router;

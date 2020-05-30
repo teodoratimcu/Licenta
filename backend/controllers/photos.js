@@ -28,7 +28,7 @@ exports.addPhoto = (req, res, next) => {
 }
 
 exports.getPhotos = (req, res, next) => {
-  const photoQuery = Photo.find();
+  const photoQuery = Photo.find({creator: req.userData.userId});
   let fetchedPhotos;
   photoQuery
     .then(photos => {

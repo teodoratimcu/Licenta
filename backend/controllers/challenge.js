@@ -26,7 +26,7 @@ exports.addChallenge = (req, res, next) => {
 }
 
 exports.getChallenge = (req, res, next) => {
-  const challengeQuery = Challenge.find();
+  const challengeQuery = Challenge.find({creator: req.userData.userId});
   let fetchedChallenge;
   challengeQuery
     .then(challenges => {

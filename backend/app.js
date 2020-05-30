@@ -7,6 +7,7 @@ const postsRoutes = require("./routes/posts");
 const userRoutes = require("./routes/user");
 const photosRoutes = require("./routes/photos");
 const challengeRoutes = require("./routes/challenge");
+const wishlistRoutes = require("./routes/wishlist");
 
 const app = express();
 
@@ -40,5 +41,6 @@ app.use("/api/posts", postsRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/photos", photosRoutes);
 app.use("/api/challenge", challengeRoutes);
+app.use("/api/wishlist", wishlistRoutes);
 
 module.exports = app;
